@@ -154,7 +154,20 @@ fun revert(n: Int): Int = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun isPalindrome(n: Int): Boolean = TODO()
+fun isPalindrome(n: Int): Boolean {
+    var number = n
+    val digits = mutableListOf<Int>()
+    while (number != 0) {
+        digits.add(number % 10)
+        number /= 10
+    }
+    for (i in 0 until digits.size / 2) {
+        if (digits[i] != digits[digits.size - i - 1]) {
+            return false
+        }
+    }
+    return true
+}
 
 /**
  * Средняя (3 балла)
@@ -164,7 +177,17 @@ fun isPalindrome(n: Int): Boolean = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun hasDifferentDigits(n: Int): Boolean = TODO()
+fun hasDifferentDigits(n: Int): Boolean {
+    if (n == 0)
+        return false
+    var number = n
+    val digits = mutableSetOf<Int>()
+    while (number != 0) {
+        digits.add(number % 10)
+        number /= 10
+    }
+    return digits.size != 1
+}
 
 /**
  * Средняя (4 балла)
