@@ -3,7 +3,6 @@
 package lesson2.task2
 
 import lesson1.task1.sqr
-import kotlin.math.*
 
 /**
  * Пример
@@ -19,13 +18,7 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
  * Четырехзначное число назовем счастливым, если сумма первых двух ее цифр равна сумме двух последних.
  * Определить, счастливое ли заданное число, вернуть true, если это так.
  */
-fun isNumberHappy(number: Int): Boolean {
-    val n = number.toString()
-    val s1 = n[0].digitToInt() + n[1].digitToInt()
-    val s2 = n[2].digitToInt() + n[3].digitToInt()
-    return s1 == s2
-
-}
+fun isNumberHappy(number: Int): Boolean = TODO()
 
 /**
  * Простая (2 балла)
@@ -55,7 +48,7 @@ fun daysInMonth(month: Int, year: Int): Int = TODO()
 fun circleInside(
     x1: Double, y1: Double, r1: Double,
     x2: Double, y2: Double, r2: Double
-): Boolean = sqrt(sqr(x2 - x1) + sqr(y2 - y1)) <= r2 - r1
+): Boolean = TODO()
 
 /**
  * Средняя (3 балла)
@@ -66,7 +59,12 @@ fun circleInside(
  * кирпич 4 х 4 х 4 пройдёт через отверстие 4 х 4.
  * Вернуть true, если кирпич пройдёт
  */
-fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean =
-    (a <= r && b <= s || a <= s && b <= r) || (a <= r && c <= s || a <= s && c <= r)
-            || (b <= r && c <= s || b <= s && c <= r)
-
+fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
+    if (a <= r && b <= s) return true
+    if (b <= r && a <= s) return true
+    if (a <= r && c <= s) return true
+    if (c <= r && a <= s) return true
+    if (b <= r && c <= s) return true
+    if (c <= r && b <= s) return true
+    return false
+}
